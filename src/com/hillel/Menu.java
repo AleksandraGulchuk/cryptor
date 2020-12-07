@@ -4,8 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class Menu {
-    private BufferedReader reader;
-    private MenuAction[] actions;
+
+    private final BufferedReader reader;
+    private final MenuAction[] actions;
 
     public Menu(BufferedReader reader, MenuAction[] actions) {
         this.reader = reader;

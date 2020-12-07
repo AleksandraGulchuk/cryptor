@@ -1,6 +1,7 @@
 package com.hillel;
 
 public class ExitMenuAction implements MenuAction {
+
     @Override
     public void doAction() {
         System.out.println("Спасибо! Хорошего дня!");
@@ -15,4 +16,5 @@ public class ExitMenuAction implements MenuAction {
     public boolean closeAfter() {
         return true;
     }
+
 }

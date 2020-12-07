@@ -1,11 +1,16 @@
 package com.hillel;
 
 public class StringCryptor {
-    private SymbolCryptor symbolCryptor;
+
+    private final SymbolCryptor symbolCryptor;
     private String text;
 
     public StringCryptor(SymbolCryptor symbolCryptor) {
         this.symbolCryptor = symbolCryptor;
+    }
+
+    public String getText() {
+        return text;
     }
 
     public void setText(String text) {
@@ -17,22 +22,21 @@ public class StringCryptor {
     }
 
     public String crypt() {
-        char[] wordArray = text.toCharArray();
-        char[] changedWordArray = new char[wordArray.length];
-        for (int i = 0; i < wordArray.length; i++) {
-            changedWordArray[i] = symbolCryptor.crypt(wordArray[i]);
+        char[] textArray = text.toCharArray();
+        char[] changedTextArray = new char[textArray.length];
+        for (int i = 0; i < textArray.length; i++) {
+            changedTextArray[i] = symbolCryptor.crypt(textArray[i]);
         }
-        return new String(changedWordArray);
+        return new String(changedTextArray);
     }
 
     public String uncrypt() {
-        char[] wordArray = text.toCharArray();
-        char[] changedWordArray = new char[wordArray.length];
-        for (int i = 0; i < wordArray.length; i++) {
-            changedWordArray[i] = symbolCryptor.uncrypt(wordArray[i]);
+        char[] textArray = text.toCharArray();
+        char[] changedTextArray = new char[textArray.length];
+        for (int i = 0; i < textArray.length; i++) {
+            changedTextArray[i] = symbolCryptor.uncrypt(textArray[i]);
         }
-        return new String(changedWordArray);
+        return new String(changedTextArray);
     }
-
 
 }

@@ -9,4 +9,5 @@ public interface MenuAction {
     String getName();
 
     boolean closeAfter();
+
 }

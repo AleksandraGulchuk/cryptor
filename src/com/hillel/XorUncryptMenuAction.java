@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class XorUncryptMenuAction implements MenuAction {
+
     StringCryptor stringCryptor;
     BufferedReader reader;
 
@@ -17,14 +18,17 @@ public class XorUncryptMenuAction implements MenuAction {
         System.out.println("Введите текст:");
         stringCryptor.setText(reader.readLine());
         XorSymbolCryptor xorSymbolCryptor = (XorSymbolCryptor) stringCryptor.getSymbolCryptor();
-        boolean isRepeat = true;
-        while (isRepeat) {
+        boolean isKeyTaken = false;
+        while (!isKeyTaken) {
             System.out.println("Введите ключ:");
             try {
                 int key = Integer.parseInt(reader.readLine());
-                isRepeat = false;
+                isKeyTaken = true;
                 xorSymbolCryptor.setKey(key);
-                System.out.println("Ваш текст расшифрован: " + stringCryptor.uncrypt());
+                System.out.println("Ваш текст расшифрован: ");
+                System.out.println("Расшифрованный текст: " + stringCryptor.uncrypt() +
+                        "\nЗашифрованный текст: " + stringCryptor.getText() +
+                        "\nключ: " + xorSymbolCryptor.getKey());
             } catch (NumberFormatException exception) {
                 System.out.println("Вы ввели некорректное значение!");
             }
@@ -40,4 +44,5 @@ public class XorUncryptMenuAction implements MenuAction {
     public boolean closeAfter() {
         return false;
     }
+
 }

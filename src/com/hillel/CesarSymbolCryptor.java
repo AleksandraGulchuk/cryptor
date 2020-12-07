@@ -1,7 +1,12 @@
 package com.hillel;
 
 public class CesarSymbolCryptor implements SymbolCryptor {
+
     private int key;
+
+    public int getKey() {
+        return key;
+    }
 
     public void setKey(int key) {
         this.key = key;

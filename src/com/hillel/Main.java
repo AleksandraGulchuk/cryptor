@@ -16,35 +16,9 @@ public class Main {
                 new XorUncryptMenuAction(new StringCryptor(new XorSymbolCryptor()), reader),
                 new ExitMenuAction()
         };
+
         Menu menu = new Menu(reader, actions);
         menu.run();
-
-
-//        int key = 2135000000;
-//        String wordToCrypt = "萸萹萺";
-//
-//        char[] wordToCryptArray = wordToCrypt.toCharArray();
-//
-//        for(int i = 0; i < wordToCryptArray.length; i++){
-//            wordToCryptArray[i] = (char) (wordToCrypt.charAt(i)+key);
-//        }
-//
-//        String wordToUncrypt = new String(wordToCryptArray);
-//
-//        System.out.println(wordToUncrypt);
-//
-//                int key = 5;
-//        String wordToCrypt = "45";
-//
-//        char[] wordToCryptArray = wordToCrypt.toCharArray();
-//
-//        for(int i = 0; i < wordToCryptArray.length; i++){
-//            wordToCryptArray[i] = (char) (wordToCrypt.charAt(i)^key);
-//        }
-//
-//        String wordToUncrypt = new String(wordToCryptArray);
-//
-//        System.out.println(wordToUncrypt);
 
     }
 }

@@ -4,8 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class CesarUncryptMenuAction implements MenuAction {
-    StringCryptor stringCryptor;
-    BufferedReader reader;
+
+    private final StringCryptor stringCryptor;
+    private final BufferedReader reader;
 
     public CesarUncryptMenuAction(StringCryptor stringCryptor, BufferedReader reader) {
         this.stringCryptor = stringCryptor;
@@ -17,14 +18,18 @@ public class CesarUncryptMenuAction implements MenuAction {
         System.out.println("Введите текст:");
         stringCryptor.setText(reader.readLine());
         CesarSymbolCryptor cesarSymbolCryptor = (CesarSymbolCryptor) stringCryptor.getSymbolCryptor();
-        boolean isRepeat = true;
-        while (isRepeat) {
+        boolean isKeyTaken = false;
+        while (!isKeyTaken) {
             System.out.println("Введите ключ:");
             try {
                 int key = Integer.parseInt(reader.readLine());
-                isRepeat = false;
+                isKeyTaken = true;
                 cesarSymbolCryptor.setKey(key);
-                System.out.println("Ваш текст расшифрован: " + stringCryptor.uncrypt());
+                System.out.println("Ваш текст расшифрован: ");
+                System.out.println("Расшифрованный текст: " + stringCryptor.uncrypt() +
+                        "\nЗашифрованный текст: " + stringCryptor.getText() +
+                        "\nключ: " + cesarSymbolCryptor.getKey());
+
             } catch (NumberFormatException exception) {
                 System.out.println("Вы ввели некорректное значение!");
             }
@@ -40,4 +45,5 @@ public class CesarUncryptMenuAction implements MenuAction {
     public boolean closeAfter() {
         return false;
     }
+
 }
